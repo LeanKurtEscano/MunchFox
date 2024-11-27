@@ -26,21 +26,19 @@ const Login: React.FC = () => {
             <div className='cursor-pointer' onClick={closeLogin}>
                 <FontAwesomeIcon icon ={faTimes} className='text-gray-500 text-base' />
             </div>
-          <div className="flex border-2 justify-center p-2 mb-2">
+        
             <GoogleButton />
          
   
-          </div>
+    
       
           <div className="flex items-center justify-center flex-row mb-2">
-            <p className="text-center text-slate-300 mr-1">or</p>
+            <p className="text-center text-slate-600 mr-1">or</p>
           
           </div>
       
           <div className="flex flex-col">
-            
-      
-             
+                         
             <button
               type="submit"
               className="bg-gradient-to-r bg-customOrange mt-2 text-white rounded p-2 hover:bg-orange-500 transition duration-300 flex justify-center items-center"

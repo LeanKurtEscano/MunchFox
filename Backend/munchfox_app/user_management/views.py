@@ -58,15 +58,17 @@ def google_login(request):
         CLIENT_SECRET = os.getenv("CLIENT_SECRET")
         
         email, username = google_auth(code,CLIENT_ID,CLIENT_SECRET)
+       
         
         if email and username:
-            user, created = User.objects.get_or_create(email=email, defaults={'username',username})
+            user, created = User.objects.get_or_create(email=email, defaults={'username':username})
             get_token = RefreshToken.for_user(user)
             access_token = str(get_token.access_token)
             refresh_token = str(get_token)
         else:
             return Response({"error": "Failed to sign in using google"},status= status.HTTP_400_BAD_REQUEST)
         
+       
         return Response({"success": "User has successfully login with google",
                          "access_token": access_token,
                          "refresh_token": refresh_token}, status= status.HTTP_200_OK)
